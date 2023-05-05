@@ -1,0 +1,78 @@
+{% include "header.html" %}
+
+<body id="cafes-body">
+<!--    {% set n = 0 %}-->
+    <div class="navbar-cafes">
+        <label class="cafes_title">All Cafes</label>
+        <button onclick="openForm()" class="profile-btn"><img class="profile_logo" src="static/assets/images/Icon awesome-user-circle.png"></button>
+    </div>
+    <div class="form-popup" id="myForm">
+        <form action="{{url_for('logout_page')}}" class="form-container">
+            <img src='static/assets/images/Icon awesome-user-circle.png'>
+            <p>{{current_user.name}}</p>
+            <div>
+                <button type="submit" class="btn">Logout</button>
+            </div>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+    {% if all_cafes == []: %}
+        <div class="no_cafe">
+            <div>
+                <p class="title">There is no café in database!</p>
+                <p class="emoji">^_^</p>
+                {% if current_user.id == 1:%}
+                    <a href="{{url_for('add_cafe')}}">add cafe</a>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endif %}
+
+    {% for cafe in all_cafes:%}
+    <a href="{{url_for('single_cafe', cafe_id=cafe.id)}}">
+        <div class="row cafe_card">
+            <div class="col-lg-3 card_img">
+                <img src={{cafe.img_url}}>
+            </div>
+            <div class="col-lg-9">
+                <label class="name">{{cafe.name}}</label>
+                <label class="location">{{cafe.location}}</label>
+                <label class="seats_title">Total Seats:</label>
+                <label class="seats">{{cafe.seats}}</label>
+                <label class="price_title">Coffee Price:</label>
+                <label class="price">{{cafe.coffee_price}}</label>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+<footer id="cafe_footer">
+    <div class="row cafe_footer_row">
+        <div class="col-lg-6 copyright">
+            &copy; Copyright <strong><span>2023</span></strong>. All Rights Reserved
+        </div>
+
+        <div class="col-lg-6 social-links_cafe">
+            <a href="#" class="twitter"><img src="static/assets/images/twitter-logo.png"></a>
+            <a href="#" class="facebook"><img src="static/assets/images/facebook-logo.png"></a>
+            <a href="#" class="instagram"><img src="static/assets/images/instagram-logo.png"></a>
+            <a href="#" class="linkedin"><img src="static/assets/images/linkdin-logo.png"></a>
+        </div>
+    </div>
+        <div class="credits">
+            Designed by ❤️
+        </div>
+</footer><!-- End Footer -->
+<!--<script src="{{ url_for('static', filename='js/action.js')}}"></script>-->
+<script>
+function openForm() {
+    document.getElementById('myForm').style.display = 'block';
+}
+
+function closeForm() {
+    document.getElementById('myForm').style.display = 'none';
+}
+</script>
+</body>
+

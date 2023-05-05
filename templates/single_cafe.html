@@ -1,0 +1,38 @@
+{% include "header.html" %}
+
+<body>
+    <div class="row single_card">
+        <div class="col-lg-6 sngl-card-img">
+            <img src={{cafe.img_url}}>
+            {% if current_user.id == 1: %}
+                <div class="delete-cafe-btn">
+                    <a href="{{url_for('delete_cafe', cafe_id=cafe.id)}}">
+                        <button class="btn btn-primary delete-btn">Delete Cafe</button>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-lg-6 sngl-card-dtls">
+            <p class="name">{{cafe.name}}</p>
+            <a href="{{cafe.map_url}}" target="_blank"><p class="location">{{cafe.location}}</p></a>
+            <p class="price_title">Coffee Price:</p>
+            <p class="price">{{cafe.coffee_price}}</p>
+            <p class="seats_title">Total Seats:</p>
+            <p class="seats">{{cafe.seats}}</p>
+            <p class="facilities_title">Facilities:</p>
+            <p class="wifi">Has Wifi <img src="/static/assets/images/booleans/{{boolean[0]}}.png"></p>
+            <p class="socket">Has Sockets <img src="/static/assets/images/booleans/{{boolean[1]}}.png"></p>
+            <p class="toilet">Has Toilet <img src="/static/assets/images/booleans/{{boolean[2]}}.png"></p>
+            <p class="call">Can Take Call <img src="/static/assets/images/booleans/{{boolean[3]}}.png"></p>
+            {% if current_user.id == 1: %}
+                <div class="edit-cafe-btn">
+                    <a href="{{url_for('edit_cafe', cafe_id=cafe.id)}}">
+                        <button class="btn btn-outline-primary edit-btn">Edit Cafe</button>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Cafe</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <p class="add-cafe-title">Add Cafe to Database</p>
+        <form action="{{url_for('add_cafe')}}" method="post" enctype="multipart/form-data">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                         <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="add-cafe-form">
+                <div class="form-group">
+                    <label for="exampleInput">Cafe Name</label>
+                    <input type="text" name="Cafe_name" class="form-control" id="exampleInput" aria-describedby="emailHelp" placeholder="Enter Cafe Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput1">Cafe Location</label>
+                    <input type="text" name="Location" class="form-control" id="exampleInput1" placeholder="Enter Location">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput2">Total Seats</label>
+                    <input type="text" name="Seats" class="form-control" id="exampleInput2" placeholder="Enter Seats (for e.g. 20-30/30+)">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput3">Coffee Price</label>
+                    <input type="text" name="Price" class="form-control" id="exampleInput3" placeholder="Enter Coffee Price">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput4">Cafe Map URL</label>
+                    <input type="text" name="Map_url" class="form-control" id="exampleInput4" placeholder="Enter Map url">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput5">Cafe Image URL</label>
+                    <input type="text" name="Img_url" class="form-control" id="exampleInput5" placeholder="Enter Image url">
+                </div>
+                <label class="add-cafe-facilities">Available Facilities.</label>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="wifi_checkbox">
+                    <p class="form-check-label">Wifi available.</p>
+                </div>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck2" name="socket_checkbox">
+                    <p class="form-check-label">Sockets available.</p>
+                </div>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck3" name="toilet_checkbox">
+                    <p class="form-check-label">Toilet available.</p>
+                </div>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck4" name="calls_checkbox">
+                    <p class="form-check-label">Can take calls.</p>
+                </div>
+
+                <div class="add-cafe-btn">
+                    <button type="submit" class="btn btn-primary add-cafe-btn-txt">Add Cafe</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

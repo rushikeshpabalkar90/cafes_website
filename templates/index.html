@@ -1,0 +1,55 @@
+{% include "header.html" %}
+
+<body>
+    <section id="navbar">
+        <div>
+            <a href="{{url_for('login_page')}}">
+                <button class="btn btn-link log_in_btn">Log in</button>
+            </a>
+            <a href="{{url_for('sign_up_page')}}">
+                <button class="btn btn-dark sign_up_btn">Sign up</button>
+            </a>
+        </div>
+    </section>
+
+    <section id="title">
+        <div>
+            <label>Cafe and Wifi</label>
+        </div>
+    </section>
+
+    <section id="button">
+        <div class="row second-row">
+            <div class="col-lg-8 col-md-6 download-buttons">
+                <a href="https://www.apple.com/in/app-store/" target="_blank">
+                    <button class="btn btn-dark btn-lg appstore-download-button" type="button"><img class="appstore_img"
+                                                                                                    src="static/assets/images/Icon metro-apple.png">
+                        Download
+                    </button>
+                </a>
+                <a href="https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-in-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700058906740513_creativeid_480977734961_device_c&gclid=CjwKCAiAqt-dBhBcEiwATw-ggME8Lhpz6gWGs5Qgx3Ewqq-8Pprf-ChMcvst3gOWSNkTGWSHYw_Z9RoCwUcQAvD_BwE&gclsrc=aw.ds"
+                   target="_blank">
+                    <button class="btn btn-outline-dark btn-lg playstore-download-button" type="button"><img
+                            class="playstore_img" src="static/assets/images/Icon awesome-google-play.png"> Download
+                    </button>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <img class="cup-img" src="static/assets/images/cup.png">
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div>
+            <img class="beans-img" src="static/assets/images/coffee_beans.png">
+        </div>
+        <div class="social-links">
+            <a class="footer-labels" href="#">Linkdin | </a>
+            <a class="footer-labels" href="#">Facebook | </a>
+            <a class="footer-labels" href="#">Instagram</a>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+{% include "header.html" %}
+
+<body>
+    <div>
+        <p class="add-cafe-title">Edit Cafe</p>
+        <form action="{{url_for('edit_cafe', cafe_id=cafe.id)}}" method="post" enctype="multipart/form-data">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                         <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="add-cafe-form">
+                <div class="form-group">
+                    <label for="exampleInput">Cafe Name</label>
+                    <input type="text" name="Cafe_name" class="form-control" id="exampleInput" aria-describedby="emailHelp" placeholder="Enter Cafe Name" value='{{edit[0]}}' disabled>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput1">Cafe Location</label>
+                    <input type="text" name="Location" class="form-control" id="exampleInput1" placeholder="Enter Location" value='{{edit[1]}}'>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput2">Total Seats</label>
+                    <input type="text" name="Seats" class="form-control" id="exampleInput2" placeholder="Enter Seats (for e.g. 20-30/30+)" value='{{edit[2]}}'>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput3">Coffee Price</label>
+                    <input type="text" name="Price" class="form-control" id="exampleInput3" placeholder="Enter Coffee Price" value='{{edit[3]}}'>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput4">Cafe Map URL</label>
+                    <input type="text" name="Map_url" class="form-control" id="exampleInput4" placeholder="Enter Map url" value='{{edit[4]}}'>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInput5">Cafe Image URL</label>
+                    <input type="text" name="Img_url" class="form-control" id="exampleInput5" placeholder="Enter Image url" value='{{edit[5]}}'>
+                </div>
+                <label class="add-cafe-facilities">Available Facilities.</label>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="wifi_checkbox" {{edit[6]}}>
+                    <p class="form-check-label">Wifi available.</p>
+                </div>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck2" name="socket_checkbox" {{edit[7]}}>
+                    <p class="form-check-label">Sockets available.</p>
+                </div>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck3" name="toilet_checkbox" {{edit[8]}}>
+                    <p class="form-check-label">Toilet available.</p>
+                </div>
+                <div class="form-check add-cafe-ch_box">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck4" name="calls_checkbox" {{edit[9]}}>
+                    <p class="form-check-label">Can take calls.</p>
+                </div>
+
+                <div class="add-cafe-btn">
+                    <button type="submit" class="btn btn-primary add-cafe-btn-txt">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
